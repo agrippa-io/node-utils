@@ -1,9 +1,15 @@
 {
   "name": "@agrippa-io/node-utils",
-  "version": "1.0.0",
+  "version": "1.0.2",
+  "type": "module",
   "description": "NodeJS Utils",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,8 +19,13 @@
   "author": "Agrippa Development Team",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^16.11.1",
-    "eslint": "^8.0.1",
+    "@types/node": "^16.11.4",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.1"
   }
 }
