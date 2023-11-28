@@ -25,4 +25,5 @@ Object.defineProperty(exports, "mapMethodsFromChildDirectories", { enumerable: t
 var mapMethodsFromSiblingFiles_1 = require("./mapMethodsFromSiblingFiles");
 Object.defineProperty(exports, "mapMethodsFromSiblingFiles", { enumerable: true, get: function () { return __importDefault(mapMethodsFromSiblingFiles_1).default; } });
 __exportStar(require("./getController"), exports);
+__exportStar(require("./encrypt"), exports);
 //# sourceMappingURL=index.js.map

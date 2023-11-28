@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Logger_1 = __importDefault(require("./Logger"));
 const getDirectoryNames_1 = __importDefault(require("./getDirectoryNames"));
 exports.default = (path, isDefaultModule = true) => {
-    const directoryNames = getDirectoryNames_1.default(path);
+    const directoryNames = (0, getDirectoryNames_1.default)(path);
     if (!directoryNames.length) {
         return {};
     }

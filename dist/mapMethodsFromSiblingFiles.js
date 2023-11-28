@@ -11,7 +11,7 @@ const DEFAULT_OPTIONS = {
 exports.default = (path, options = DEFAULT_OPTIONS) => {
     const _options = Object.assign(Object.assign({}, DEFAULT_OPTIONS), options);
     const { isDefaultModule, asLastNode } = _options;
-    const filenames = getFilenames_1.default(path, { excludeExtension: true });
+    const filenames = (0, getFilenames_1.default)(path, { excludeExtension: true });
     return filenames.reduce((acc, filename) => {
         const methodName = asLastNode ? filename.split('.').pop() : filename;
         if (methodName !== 'index') {
