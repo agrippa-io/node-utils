@@ -1,12 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const Logger_1 = __importDefault(require("./Logger"));
-const getDirectoryNames_1 = __importDefault(require("./getDirectoryNames"));
-exports.default = (path, isDefaultModule = true) => {
-    const directoryNames = (0, getDirectoryNames_1.default)(path);
+import Logger from './Logger';
+import getDirectoryNames from './getDirectoryNames';
+export default (path, isDefaultModule = true) => {
+    const directoryNames = getDirectoryNames(path);
     if (!directoryNames.length) {
         return {};
     }
@@ -16,7 +11,7 @@ exports.default = (path, isDefaultModule = true) => {
             acc[folderName] = isDefaultModule ? require(_path).default : require(_path);
         }
         catch (err) {
-            Logger_1.default.error(`Failed to load dependency at path: ${_path}`);
+            Logger.error(`Failed to load dependency at path: ${_path}`);
         }
         return acc;
     }, {});

@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const ENVIRONMENT = process.env.NODE_ENV;
 const NODE_ENV = {
     PRODUCTION: 'production',
@@ -9,7 +7,7 @@ const NODE_ENV = {
 const isProduction = ENVIRONMENT === NODE_ENV.PRODUCTION;
 const isTest = ENVIRONMENT === NODE_ENV.TEST;
 const shouldLog = !isProduction && !isTest;
-class Logger {
+export default class Logger {
     static error(...messages) {
         if (!isTest) {
             console.log(`ERROR - `, ...messages);
@@ -41,5 +39,4 @@ class Logger {
         }
     }
 }
-exports.default = Logger;
 //# sourceMappingURL=Logger.js.map
