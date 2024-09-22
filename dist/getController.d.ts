@@ -1,1 +1,1 @@
-export declare function getController(path: string, isDefaultModule?: boolean): Record<string, any>;
+export declare function getController(path: string, isDefaultModule?: boolean): Promise<Record<string, any>>;

@@ -1,12 +1,13 @@
 import { camelCase } from 'change-case';
 import getFilenames from './getFilenames';
-export function getController(path, isDefaultModule = true) {
+export async function getController(path, isDefaultModule = true) {
     const filenames = getFilenames(path, { excludeExtension: true });
-    return filenames.reduce((acc, filename) => {
+    return filenames.reduce(async (acc, filename) => {
         if (filename !== 'index') {
             const _path = `${path}/${filename}`;
             const methodName = camelCase(filename);
-            acc[methodName] = isDefaultModule ? require(_path).default : require(_path);
+            const module = await import(_path);
+            acc[methodName] = isDefaultModule ? module.default : module;
         }
         return acc;
     }, {});

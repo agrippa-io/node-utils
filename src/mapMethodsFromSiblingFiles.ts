@@ -10,7 +10,7 @@ export interface InterfaceOptionsMapMethodsFromSiblingFiles {
   asLastNode?: boolean
 }
 
-export default (path: string, options: InterfaceOptionsMapMethodsFromSiblingFiles = DEFAULT_OPTIONS) => {
+export default async (path: string, options: InterfaceOptionsMapMethodsFromSiblingFiles = DEFAULT_OPTIONS) => {
   const _options: InterfaceOptionsMapMethodsFromSiblingFiles = {
     ...DEFAULT_OPTIONS,
     ...options,
@@ -18,13 +18,14 @@ export default (path: string, options: InterfaceOptionsMapMethodsFromSiblingFile
   const { isDefaultModule, asLastNode } = _options
   const filenames: string[] = getFilenames(path, { excludeExtension: true })
 
-  return filenames.reduce((acc: any, filename: string) => {
+  return filenames.reduce(async (acc: any, filename: string) => {
     const methodName: string = asLastNode ? filename.split('.').pop() : filename
 
     if (methodName !== 'index') {
       const _path = `${path}/${filename}`
 
-      acc[methodName] = isDefaultModule ? require(_path).default : require(_path)
+      const module = await import(_path)
+      acc[methodName] = isDefaultModule ? module.default : module
     }
 
     return acc
