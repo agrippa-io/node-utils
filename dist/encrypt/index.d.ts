@@ -1,2 +1,2 @@
-export * from './encryptPassword';
-export * from './isEncryptPasswordMatch';
+export * from '../encrypt/encryptPassword';
+export * from '../encrypt/isEncryptPasswordMatch';

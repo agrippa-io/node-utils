@@ -1,1 +1,1 @@
-export declare function isEncryptPasswordMatch(rawPassword: any, encryptedPassword: any): Promise<boolean>;
+export declare function isEncryptPasswordMatch(rawPassword: string, encryptedPassword: Buffer): Promise<boolean>;
