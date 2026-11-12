@@ -1,5 +1,11 @@
 # @agrippa-io/node-utils
 
+> [!IMPORTANT]
+> **Frozen (2026-11): bug fixes only.** This package serves the Mongo-era
+> services (`node-event-handler`, `node-service-project-generation`). New
+> services should not depend on it. Replacement: `@agrippa-io/node-config` (env parsing) and `@agrippa-io/node-observability` (logging). See
+> [shared-libs-1](https://github.com/agrippa-io/agrippa-stack/tree/develop/epics/shared-libs-1).
+
 Shared Node.js utilities for the Agrippa platform.
 
 ## Exports
